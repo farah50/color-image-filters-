@@ -188,7 +188,8 @@ int main() {
         saveImage0 ();
     }
     else if ( choice == 'c'){
-        
+        blur();
+        saveImage0();
     }
 }
 void loadImage() {
@@ -1118,5 +1119,27 @@ void shrinkQuarter(){
             image3[i][j][k] = (image[i*4][j*4][k]);
       }
     }
+  }
+}
+
+void blur(){
+    long sum = 0 , avg =0 ;
+    for (int i = 0 ; i < SIZE; i++){
+        for (int j = 0; j < SIZE; j++) {
+           for( int z = 0; z < RGB; z++){
+              sum = 0;
+            for (int k = 0; k < 9; k++){       
+                for ( int m = 0; m < 9 ; m++){
+                   
+                     sum += (image[i+k][j+m][z]);
+                    
+                   
+                }
+            }
+            image3[i][j][z] = sum /81;
+        }
+
+    }
+    
   }
 }
