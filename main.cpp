@@ -1082,7 +1082,8 @@ void invert1() {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j< SIZE; j++) {
           for (int k = 0; k < RGB; k++){
-
+              
+             image[i][j][k] = (image[i][j][k]/2 + 256/2);
             image[i][j][k] = (image[i][j][k])*(-1);
       }
     }
