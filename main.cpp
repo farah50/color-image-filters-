@@ -20,6 +20,8 @@ const int RBG = 3;
 unsigned char image[SIZE][SIZE][RBG];
 unsigned char image2[SIZE][SIZE][RBG];
 unsigned char image3[SIZE][SIZE][RGB];
+unsigned char image1[SIZE][SIZE];
+
 
 void loadImage ();
 void saveImage();
@@ -51,6 +53,7 @@ void Quarter2();
 void Quarter3();
 void Quarter4();
 void Shuffle();
+void saveImage1();
 
 
 
@@ -80,7 +83,7 @@ int main() {
 
     if (choice == '1'){
         ImageBW ();
-        saveImage ();
+        saveImage1 ();
 
     }
     else if ( choice == '2'){
@@ -89,7 +92,7 @@ int main() {
     }
     else if ( choice == '3'){
         loadImage0();
-        merge0();
+//         merge0();
         saveImage0();
     }
     else if (choice == '4'){
@@ -123,7 +126,7 @@ int main() {
         cout <<  "choose 'd' for Darken or 'l' for lighten\n";
         cin >> choice2;
         if ( choice2 == 'd'){
-            darken1();
+//             darken1();
         }
         else if ( choice2 == 'l'){
             lighten1();
@@ -132,7 +135,7 @@ int main() {
     }
     else if (choice == '7'){
         EdgeDetection();
-        saveImage ();
+        saveImage1 ();
     }
     else if (choice == '8'){
         cout << "Choose 'q1' for the upper right quarter or\n"
@@ -214,6 +217,17 @@ void saveImage() {
     strcat(imageFileName, ".bmp");
     writeRGBBMP(imageFileName, image);
 }
+void saveImage1() {
+    char imageFileName[100];
+
+    // Get gray scale image target file name
+    cout << "Enter the target image file name: ";
+    cin >> imageFileName;
+
+    // Add to it .bmp extension and load image
+    strcat(imageFileName, ".bmp");
+    writeGSBMP(imageFileName, image1);
+}
 void loadImage0(){
   //    char image1FileName[100];
     char image2FileName[100];
@@ -253,9 +267,9 @@ void ImageBW (){
         for (int j = 0; j< SIZE; j++) {
             for (int k = 0; k < 3; k++) {
                 if (image[i][j][k] > average)
-                    image[i][j][k] = 255;
+                    image1[i][j] = 255;
                 else
-                    image[i][j][k] = 0;
+                    image1[i][j] = 0;
             }
         }
     }
@@ -289,14 +303,13 @@ void EdgeDetection() {
     ImageBW();
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
-            for (int k = 0; k < 3; k++) {
                 //if the pixel and the next pixel (in row or column) are equal make them white else make them black
-                if (image[i][j][k] != image[i + 1][j][k] || image[i][j][k] != image[i][j + 1][k]) {
-                    image[i][j][k] = 0;
+                if (image1[i][j] != image1[i + 1][j] || image1[i][j] != image1[i][j + 1]) {
+                    image1[i][j] = 0;
                 } else {
-                    image[i][j][k] = 255;
+                    image1[i][j] = 255;
                 }
-            }
+
         }
     }
 }
@@ -712,6 +725,7 @@ void Shuffle() {
                 }
             }
         }
+    }
         if (q1 == 3 && q2 == 1 && q3 == 4 && q4 == 2) {
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
@@ -1038,31 +1052,7 @@ void Shuffle() {
                 }
             }
         }
-    }
-}
 
-void merge0(){
-     
-  for (int i = 0; i < SIZE; i++) {
-      for (int j = 0; j < SIZE; j++){
-        for(int k = 0; k < RGB; k++){
-
-          image3[i][j][k] = (image[i][j][k]+image2[i][j][k])/2;
-
-      }  
-    }
-  }
-}
-
-void darken1() {
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j< SIZE; j++) {
-          for( int k = 0; k < RGB ; k++){
-            
-            image[i][j][k] = (image[i][j][k])/4;
-      }
-    }
-  }
 }
 
 void lighten1() {
