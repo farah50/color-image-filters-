@@ -1052,7 +1052,7 @@ void merge0(){
     }
   }
 }
-//------------------------------------------------------
+
 void darken1() {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j< SIZE; j++) {
@@ -1063,7 +1063,7 @@ void darken1() {
     }
   }
 }
-//------------------------------------------------------
+
 void lighten1() {
 
   for (int i = 0; i < SIZE; i++) {
@@ -1076,7 +1076,7 @@ void lighten1() {
        }
     }
 }
-//------------------------------------------------------
+
 void invert1() {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j< SIZE; j++) {
@@ -1087,7 +1087,7 @@ void invert1() {
     }
   }
 }
-//------------------------------------------------------
+
 void shrinkHalf(){
     for (int i = 0; i < SIZE/2; i++) {
         for (int j = 0; j< SIZE/2; j++) {
@@ -1098,7 +1098,7 @@ void shrinkHalf(){
     }
   }
 } 
-//------------------------------------------------------
+
 void shrinkToaThird(){
     for (int i = 0; i < SIZE/3; i++) {
         for (int j = 0; j< SIZE/3; j++) {
@@ -1109,7 +1109,7 @@ void shrinkToaThird(){
     }
   }
 }
-//------------------------------------------------------
+
 void shrinkQuarter(){
     for (int i = 0; i < SIZE/4; i++) {
         for (int j = 0; j< SIZE/4; j++) {
