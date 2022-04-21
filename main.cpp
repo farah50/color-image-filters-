@@ -92,7 +92,7 @@ int main() {
     }
     else if ( choice == '3'){
         loadImage0();
-//         merge0();
+        merge0();
         saveImage0();
     }
     else if (choice == '4'){
@@ -126,7 +126,7 @@ int main() {
         cout <<  "choose 'd' for Darken or 'l' for lighten\n";
         cin >> choice2;
         if ( choice2 == 'd'){
-//             darken1();
+            darken1();
         }
         else if ( choice2 == 'l'){
             lighten1();
@@ -1054,6 +1054,29 @@ void Shuffle() {
         }
 
 }
+void merge0(){
+     
+  for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++){
+        for(int k = 0; k < RGB; k++){
+
+          image3[i][j][k] = (image[i][j][k]+image2[i][j][k])/2;
+
+      }  
+    }
+  }
+}
+
+void darken1() {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j< SIZE; j++) {
+          for( int k = 0; k < RGB ; k++){
+            
+            image[i][j][k] = (image[i][j][k])/4;
+      }
+    }
+  }
+}
 
 void lighten1() {
 
@@ -1114,7 +1137,7 @@ void shrinkQuarter(){
 }
 
 void blur(){
-    long sum = 0 , avg =0 ;
+    long sum = 0 ;
     for (int i = 0 ; i < SIZE; i++){
         for (int j = 0; j < SIZE; j++) {
            for( int z = 0; z < RGB; z++){
