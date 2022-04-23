@@ -1,5 +1,5 @@
 // FCI – Programming 1 – 2022 - Assignment 3
-// Program Name: Gray Scale Image Processor.cpp
+// Program Name: RGB Image Processor.cpp
 // Last Modification Date: 4/5/2022
 // Author1 and ID and Group: Sara Tamer Mohamed Bihery - 20210155 - S25
 // Author2 and ID and Group: Farah Mohamed Mohamed El-Sayed - 20210288 - S25
