@@ -2,7 +2,7 @@
 Color image filters 
 
 There are 12 filters 
-1- black and white filter
+1- black and white filter\n
 2- shrink filter
 3- blur filter
 4- enlarge filter
